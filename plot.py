@@ -46,10 +46,7 @@ ProblemSize = [16,
                3584,
                3968]
 
-from cProfile import label
-import enum
 import os
-from re import X
 import natsort
 
 bas_file_list = []
