@@ -118,9 +118,9 @@ def toOutput(output_filename, optval, strSol1, strSol2, time, memory):
     outF.write(str(strSol2))
     outF.write("\n")
     outF.write(str(time))
-    outF.close()
-    outF.write(str(memory))
     outF.write("\n")
+    outF.write(str(memory))
+    outF.close()
 
 # ==== main() ====
 def main():

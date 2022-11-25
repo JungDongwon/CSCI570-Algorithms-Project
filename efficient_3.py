@@ -110,9 +110,9 @@ def toOutput(output_filename, optval, strSol1, strSol2, time, memory):
     outF.write(str(strSol2))
     outF.write("\n")
     outF.write(str(time))
-    outF.close()
-    outF.write(str(memory))
     outF.write("\n")
+    outF.write(str(memory))
+    outF.close()
 
 alpha = [[0,110,48,94],[110,0,118,48],[48,118,0,110],[94,48,110,0]]
 delta = 30
