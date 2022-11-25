@@ -108,7 +108,7 @@ def time_wrapper(generatedStr1, generatedStr2):
     time_taken = (end_time - start_time)*1000
     return [optval, strSol1, strSol2, time_taken] # returns [cost, strsol1, strsol2, time]
  
-def toOutput(output_filename, optval, strSol1, strSol2, memory, time):
+def toOutput(output_filename, optval, strSol1, strSol2, time, memory):
     outF = open(output_filename, "w")
     # write line to output file
     outF.write(str(optval))
@@ -117,10 +117,10 @@ def toOutput(output_filename, optval, strSol1, strSol2, memory, time):
     outF.write("\n")
     outF.write(str(strSol2))
     outF.write("\n")
-    outF.write(str(memory))
-    outF.write("\n")
     outF.write(str(time))
     outF.close()
+    outF.write(str(memory))
+    outF.write("\n")
 
 # ==== main() ====
 def main():
