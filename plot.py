@@ -46,8 +46,10 @@ ProblemSize = [16,
                3584,
                3968]
 
+from cProfile import label
 import enum
 import os
+from re import X
 import natsort
 
 bas_file_list = []
@@ -98,84 +100,51 @@ for e in eff_file_list:
 # print(eff_CPUTime)
 # print(eff_Memory)
 
-#basic
+###################### CPU Time vs problem size ######################
 import matplotlib.pyplot as plt
 
 # plotting the points 
-plt.plot(bas_CPUTime, ProblemSize)
-  
+plt.plot(ProblemSize, bas_CPUTime, label='Basic')
+plt.plot(ProblemSize, eff_CPUTime, label='Efficient')
+
 # naming the x axis
-plt.xlabel('CPU Time in milliseconds')
+plt.xlabel('Problem Size')
 # naming the y axis
-plt.ylabel('Problem Size')
+plt.ylabel('CPU Time in milliseconds')
   
 # giving a title to my graph
-plt.title('(Basic) CPU time vs problem size')
-  
-# # function to show the plot
-# plt.show()
+plt.title('CPU time vs problem size')
+
+plt.legend()
 
 #Save the plot
-plt.savefig(path+'(Basic)CPU_Time&Size.png')
-plt.clf() #clear the plot
-
-######### Memory usage vs problem size
-# plotting the points 
-plt.plot(bas_Memory, ProblemSize)
-  
-# naming the x axis
-plt.xlabel('Memory usage in KB')
-# naming the y axis
-plt.ylabel('Problem Size')
-  
-# giving a title to my graph
-plt.title('(Basic) Memory usage vs problem size')
-  
-# # function to show the plot
-# plt.show()
-
-#Save the plot
-plt.savefig(path+'(Basic)Mem_Use&Size.png')
-plt.clf() #clear the plot
-
-############################# Efficient #############################
-
-# plotting the points 
-plt.plot(eff_CPUTime, ProblemSize)
-  
-# naming the x axis
-plt.xlabel('CPU Time in milliseconds')
-# naming the y axis
-plt.ylabel('Problem Size')
-  
-# giving a title to my graph
-plt.title('(Efficient) CPU time vs problem size')
-  
-# # function to show the plot
-# plt.show()
-
-#Save the plot
-plt.savefig(path+'(Efficient)CPU_Time&Size.png')
+plt.savefig(path+'CPU_Time&Size.png')
 plt.clf() #clear the plot
 
 
-######### Memory usage vs problem size
+###################### Memory usage vs problem size ######################
 # plotting the points 
-plt.plot(eff_Memory, ProblemSize)
+plt.plot(ProblemSize, bas_Memory, label='Basic')
+plt.plot(ProblemSize, eff_Memory, label='Efficient')
   
 # naming the x axis
-plt.xlabel('Memory usage in KB')
+plt.xlabel('Problem Size')
+
 # naming the y axis
-plt.ylabel('Problem Size')
-  
+plt.ylabel('Memory usage in KB')
+
 # giving a title to my graph
-plt.title('(Efficient) Memory usage vs problem size')
+plt.title('Memory usage vs problem size')
   
 # # function to show the plot
 # plt.show()
 
+plt.legend()
+
 #Save the plot
-plt.savefig(path+'(Efficient)Mem_Use&Size.png')
+plt.savefig(path+'Mem_Use&Size.png')
+plt.clf() #clear the plot
+
 
 # (1)
 # 0.087738037109375
