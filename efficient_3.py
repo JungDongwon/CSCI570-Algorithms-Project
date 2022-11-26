@@ -72,16 +72,28 @@ def efficient(s1,s2,cost):
             if pivot == -1:
                 if s1 == 'G':
                     pivot1 = s2.find('A')
-                    return '_'*(pivot1) + s1 + '_'*(n-pivot1-1), s2, cost+30*(n-1)+alpha[look_up['G']][look_up['A']]
+                    if pivot1 == -1:
+                        return s1 + '_'*n, '_'*m + s2, cost+30*(m+n)
+                    else:
+                        return '_'*(pivot1) + s1 + '_'*(n-pivot1-1), s2, cost+30*(n-1)+alpha[look_up['G']][look_up['A']]
                 elif s1 == 'A':
                     pivot1 = s2.find('G')
-                    return '_'*(pivot1) + s1 + '_'*(n-pivot1-1), s2, cost+30*(n-1)+alpha[look_up['A']][look_up['G']]
+                    if pivot1 == -1:
+                        return s1 + '_'*n, '_'*m + s2, cost+30*(m+n)
+                    else:
+                        return '_'*(pivot1) + s1 + '_'*(n-pivot1-1), s2, cost+30*(n-1)+alpha[look_up['A']][look_up['G']]
                 elif s1 == 'C':
                     pivot1 = s2.find('T')
-                    return '_'*(pivot1) + s1 + '_'*(n-pivot1-1), s2, cost+30*(n-1)+alpha[look_up['C']][look_up['T']]
+                    if pivot1 == -1:
+                        return s1 + '_'*n, '_'*m + s2, cost+30*(m+n)
+                    else:
+                        return '_'*(pivot1) + s1 + '_'*(n-pivot1-1), s2, cost+30*(n-1)+alpha[look_up['C']][look_up['T']]
                 elif s1 == 'T':
                     pivot1 = s2.find('C')
-                    return '_'*(pivot1) + s1 + '_'*(n-pivot1-1), s2, cost+30*(n-1)+alpha[look_up['T']][look_up['C']]
+                    if pivot1 == -1:
+                        return s1 + '_'*n, '_'*m + s2, cost+30*(m+n)
+                    else:
+                        return '_'*(pivot1) + s1 + '_'*(n-pivot1-1), s2, cost+30*(n-1)+alpha[look_up['T']][look_up['C']]
                 else:
                     return s1 + '_'*n, '_'*m + s2, cost+30*(m+n)
             else:
